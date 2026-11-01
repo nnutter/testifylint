@@ -6,7 +6,7 @@ import (
 	"go/types"
 	"testing"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/analysisutil"
 )
 
 func TestObjectOf(t *testing.T) {

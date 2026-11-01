@@ -4,7 +4,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 // BaseTestsGenerator implements tests that cover base code of the analyzer (package inspection, resolving testify objects, etc.).

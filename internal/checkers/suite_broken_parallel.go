@@ -7,7 +7,7 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/ast/inspector"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/analysisutil"
 )
 
 // SuiteBrokenParallel detects unsupported t.Parallel() call in suite tests

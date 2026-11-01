@@ -4,7 +4,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 type ContainsTestsGenerator struct{}
@@ -100,7 +100,7 @@ func (g ContainsTestsGenerator) TemplateData() any {
 			{Fn: "NotContains", Argsf: `metrics, metrics`},
 			{Fn: "NotContains", Argsf: `metrics, 1, fmt.Sprintf("should contain %d", 1)`},
 
-			// https://github.com/Antonboom/testifylint/issues/154
+			// https://github.com/nnutter/testifylint/issues/154
 			{Fn: "True", Argsf: `bytes.Contains(b, []byte("a"))`},
 			{Fn: "False", Argsf: `!bytes.Contains(b, []byte("a"))`},
 			{Fn: "False", Argsf: `bytes.Contains(b, []byte("a"))`},

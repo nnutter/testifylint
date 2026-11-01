@@ -10,6 +10,7 @@ env:
 
 jobs:
   release:
+    if: false # Releases are not published from the fork.
     permissions:
       contents: write
     runs-on: ubuntu-latest

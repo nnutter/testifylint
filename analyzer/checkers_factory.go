@@ -3,8 +3,8 @@ package analyzer
 import (
 	"fmt"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
-	"github.com/Antonboom/testifylint/internal/config"
+	"github.com/nnutter/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/config"
 )
 
 // newCheckers accepts linter config and returns slices of enabled checkers sorted by priority.

@@ -6,8 +6,8 @@ import (
 
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
-	"github.com/Antonboom/testifylint/internal/testify"
+	"github.com/nnutter/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/testify"
 )
 
 func isEmptyInterface(pass *analysis.Pass, expr ast.Expr) bool {

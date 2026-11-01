@@ -8,9 +8,9 @@ import (
 	"golang.org/x/tools/go/analysis/passes/inspect"
 	"golang.org/x/tools/go/ast/inspector"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
-	"github.com/Antonboom/testifylint/internal/config"
-	"github.com/Antonboom/testifylint/internal/testify"
+	"github.com/nnutter/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/config"
+	"github.com/nnutter/testifylint/internal/testify"
 )
 
 const (

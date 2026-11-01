@@ -8,7 +8,7 @@ import (
 
 	"golang.org/x/tools/go/analysis/singlechecker"
 
-	"github.com/Antonboom/testifylint/analyzer"
+	"github.com/nnutter/testifylint/analyzer"
 )
 
 // Populated by goreleaser during build.

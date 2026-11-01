@@ -7,7 +7,7 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/ast/inspector"
 
-	"github.com/Antonboom/testifylint/internal/testify"
+	"github.com/nnutter/testifylint/internal/testify"
 )
 
 // BlankImport detects useless blank imports of testify's packages.

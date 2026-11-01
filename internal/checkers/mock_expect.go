@@ -11,8 +11,8 @@ import (
 	"golang.org/x/tools/go/ast/inspector"
 	"golang.org/x/tools/go/types/typeutil"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
-	"github.com/Antonboom/testifylint/internal/testify"
+	"github.com/nnutter/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/testify"
 )
 
 // MockExpect detects situations like
