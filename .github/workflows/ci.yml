@@ -54,5 +54,6 @@ jobs:
           go-version: ${{ env.GO_VERSION }}
       - run: go test -coverpkg=./analyzer,./internal/analysisutil,./internal/checkers,./internal/config -coverprofile=coverage.out ./...
       - uses: shogo82148/actions-goveralls@v1
+        if: false # Coverage is not published for the fork.
         with:
           path-to-profile: coverage.out
