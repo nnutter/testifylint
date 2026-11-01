@@ -6,8 +6,8 @@ import (
 
 	"golang.org/x/tools/go/analysis/analysistest"
 
-	"github.com/Antonboom/testifylint/analyzer"
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/analyzer"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 func TestTestifyLint(t *testing.T) {
@@ -148,8 +148,8 @@ func TestTestifyLint_NotDefaultCases(t *testing.T) {
 		{
 			dir: "go-require-http-handlers",
 			flags: map[string]string{
-				"enable": checkers.NewGoRequire().Name() + "," + // https://github.com/Antonboom/testifylint/issues/66
-					checkers.NewRequireError().Name(), // https://github.com/Antonboom/testifylint/issues/73
+				"enable": checkers.NewGoRequire().Name() + "," + // https://github.com/nnutter/testifylint/issues/66
+					checkers.NewRequireError().Name(), // https://github.com/nnutter/testifylint/issues/73
 			},
 		},
 		{

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Antonboom/testifylint/internal/config"
+	"github.com/nnutter/testifylint/internal/config"
 )
 
 func TestKnownCheckersValue_Set(t *testing.T) {

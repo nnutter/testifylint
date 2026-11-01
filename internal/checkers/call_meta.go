@@ -8,8 +8,8 @@ import (
 	"golang.org/x/tools/go/analysis"
 	"golang.org/x/tools/go/types/typeutil"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
-	"github.com/Antonboom/testifylint/internal/testify"
+	"github.com/nnutter/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/testify"
 )
 
 // CallMeta stores meta info about assertion function/method call, for example

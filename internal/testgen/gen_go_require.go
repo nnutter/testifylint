@@ -3,7 +3,7 @@ package main
 import (
 	"text/template"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 type GoRequireTestsGenerator struct{}

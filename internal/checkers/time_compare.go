@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/analysisutil"
 )
 
 // DefaultTimeCompareSuppressCallsPattern contains functions that usually make time equality safe.

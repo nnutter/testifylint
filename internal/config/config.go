@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 // NewDefault builds default testifylint config.

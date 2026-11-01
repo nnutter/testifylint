@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"text/template"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 type SuiteBrokenParallelTestsGenerator struct{}

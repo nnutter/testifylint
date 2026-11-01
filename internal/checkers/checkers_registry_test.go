@@ -5,7 +5,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 func TestRegistry(t *testing.T) {

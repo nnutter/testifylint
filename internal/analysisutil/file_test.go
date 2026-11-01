@@ -5,7 +5,7 @@ import (
 	"go/token"
 	"testing"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/analysisutil"
 )
 
 func TestImports(t *testing.T) {

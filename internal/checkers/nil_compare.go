@@ -3,7 +3,7 @@ package checkers
 import (
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/analysisutil"
 )
 
 // NilCompare detects situations like

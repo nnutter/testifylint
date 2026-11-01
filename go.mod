@@ -1,4 +1,4 @@
-module github.com/Antonboom/testifylint
+module github.com/nnutter/testifylint
 
 go 1.26.0
 

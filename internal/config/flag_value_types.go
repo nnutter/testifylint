@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 var (

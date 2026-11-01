@@ -5,7 +5,7 @@ import (
 
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/analysisutil"
 )
 
 func isFmtSprintfCall(pass *analysis.Pass, e ast.Expr) ([]ast.Expr, bool) {

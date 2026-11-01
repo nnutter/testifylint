@@ -8,9 +8,9 @@ import (
 
 	"golang.org/x/tools/go/analysis"
 
-	"github.com/Antonboom/testifylint/internal/analysisutil"
-	"github.com/Antonboom/testifylint/internal/checkers/printf"
-	"github.com/Antonboom/testifylint/internal/testify"
+	"github.com/nnutter/testifylint/internal/analysisutil"
+	"github.com/nnutter/testifylint/internal/checkers/printf"
+	"github.com/nnutter/testifylint/internal/testify"
 )
 
 // Formatter detects situations like

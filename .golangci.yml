@@ -16,7 +16,7 @@ formatters:
       sections:
         - standard # A standard section: captures all standard packages.
         - default  # Default section: contains all imports that could not be matched to another section type.
-        - prefix(github.com/Antonboom/testifylint)
+        - prefix(github.com/nnutter/testifylint)
 
   exclusions:
     generated: lax

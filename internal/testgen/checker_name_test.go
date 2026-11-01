@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/Antonboom/testifylint/internal/checkers"
+	"github.com/nnutter/testifylint/internal/checkers"
 )
 
 func TestCheckerName(t *testing.T) {
