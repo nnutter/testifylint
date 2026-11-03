@@ -11,7 +11,7 @@ import (
 	"github.com/nnutter/testifylint/analyzer"
 )
 
-// Populated by goreleaser during build.
+// Populated by the linker flags in .github/workflows/release.yml.
 var (
 	version = "unknown"
 	commit  = "unknown"
