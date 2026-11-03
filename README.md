@@ -37,7 +37,7 @@ and [2022](https://www.jetbrains.com/lp/devecosystem-2022/go/#which-testing-fram
 ## Installation & usage
 
 ```
-$ go install github.com/Antonboom/testifylint@latest
+$ go install github.com/nnutter/testifylint@latest
 $ testifylint -h
 $ testifylint ./...
 ```
