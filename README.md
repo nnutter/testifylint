@@ -112,8 +112,6 @@ https://golangci-lint.run/docs/linters/configuration/#testifylint
 | [useless-assert](#useless-assert)                   | ✅                  | ❌       |
 | [zero](#zero)                                       | ✅                  | ✅       |
 
-> ⚠️ Also look at open for contribution [checkers](CONTRIBUTING.md#open-for-contribution)
-
 ---
 
 ### blank-import
@@ -1385,7 +1383,7 @@ assert.NoError(t, err) // require-error: for error assertions use require
 require.NoError(t, err)
 ```
 
-Please [contribute](./CONTRIBUTING.md) if you have ideas on how to make this better.
+Please open an issue if you have ideas on how to make this better.
 
 ## testify v2
 
