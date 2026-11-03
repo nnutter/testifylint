@@ -5,25 +5,31 @@ on:
     tags:
       - 'v*'
 
-env:
-  GO_VERSION: ^1.26
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 jobs:
-  release:
-    if: false # Releases are not published from the fork.
-    permissions:
-      contents: write
+  publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_REPO: ${{ github.repository }}
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ github.ref_name }}
     steps:
-        - uses: actions/checkout@v7
-
-        - uses: actions/setup-go@v6
-          with:
-            go-version: ${{ env.GO_VERSION }}
-
-        - uses: goreleaser/goreleaser-action@v7
-          with:
-            version: latest
-            args: release --clean
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Read the release state
+        id: state
+        run: |
+          if state="$(gh release view "$TAG" --json isDraft --jq '.isDraft' 2>/dev/null)"; then
+            if [[ "$state" == "true" ]]; then state=draft; else state=published; fi
+          else
+            state=none
+          fi
+          echo "state=$state" >> "$GITHUB_OUTPUT"
+      - name: Create the release
+        if: steps.state.outputs.state == 'none'
+        run: gh release create "$TAG" --verify-tag --generate-notes --title "$TAG"
