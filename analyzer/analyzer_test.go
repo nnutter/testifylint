@@ -2,6 +2,7 @@ package analyzer_test
 
 import (
 	"path/filepath"
+	"runtime/debug"
 	"testing"
 
 	"golang.org/x/tools/go/analysis/analysistest"
@@ -9,6 +10,19 @@ import (
 	"github.com/nnutter/testifylint/analyzer"
 	"github.com/nnutter/testifylint/internal/checkers"
 )
+
+func TestNew_URL(t *testing.T) {
+	t.Parallel()
+
+	info, ok := debug.ReadBuildInfo()
+	if !ok {
+		t.Fatal("the test binary carries no build info")
+	}
+
+	if got, want := analyzer.New().URL, "https://"+info.Main.Path; got != want {
+		t.Fatalf("URL = %q, want %q", got, want)
+	}
+}
 
 func TestTestifyLint(t *testing.T) {
 	t.Parallel()

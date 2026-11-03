@@ -16,7 +16,7 @@ import (
 const (
 	name = "testifylint"
 	doc  = "Checks usage of " + testify.ModulePath + "."
-	url  = "https://github.com/antonboom/" + name
+	url  = "https://github.com/nnutter/testifylint"
 )
 
 // New returns a new instance of testifylint analyzer.
