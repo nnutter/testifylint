@@ -643,7 +643,7 @@ linter (included in [golangci-lint](https://golangci-lint.run/usage/linters/)). 
 
 Also, verbs in the format string of f-assertions are highlighted by an IDE, e.g. GoLand:
 
-<img width="600" alt="F-assertion IDE highlighting" src="https://github.com/Antonboom/testifylint/assets/17127404/9bdab802-d6eb-477d-a411-6cba043d33a5">
+<img width="600" alt="F-assertion IDE highlighting" src="docs/images/f-assertion-ide-highlighting.png">
 
 <br>
 
@@ -1214,7 +1214,7 @@ func (s *RoomSuite) assertRoomRound(roundID RoundID) {
 [anyway](https://github.com/stretchr/testify/blob/882382d845cd9780bd93c1acc8e1fa2ffe266ca1/assert/assertions.go#L317).
 
 The checker rather acts as an example of
-a [checkers.AdvancedChecker](https://github.com/Antonboom/testifylint/blob/676324836555445fded4e9afc004101ec6f597fe/internal/checkers/checker.go#L56).
+a [checkers.AdvancedChecker](./internal/checkers/checker.go).
 
 ---
 
