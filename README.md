@@ -1,11 +1,6 @@
 # testifylint
 
-![Latest release](https://img.shields.io/github/v/release/Antonboom/testifylint)
-[![CI](https://github.com/Antonboom/testifylint/actions/workflows/ci.yml/badge.svg)](https://github.com/Antonboom/testifylint/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/Antonboom/testifylint)](https://goreportcard.com/report/github.com/Antonboom/testifylint?dummy=unused)
-[![Coverage Status](https://coveralls.io/repos/github/Antonboom/testifylint/badge.svg?branch=master)](https://coveralls.io/github/Antonboom/testifylint?branch=master&dummy=unused)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Antonboom/testifylint/blob/master/CONTRIBUTING.md#Open-for-contribution)
 
 Checks usage of [github.com/stretchr/testify](https://github.com/stretchr/testify).
 
@@ -37,7 +32,7 @@ and [2022](https://www.jetbrains.com/lp/devecosystem-2022/go/#which-testing-fram
 ## Installation & usage
 
 ```
-$ go install github.com/Antonboom/testifylint@latest
+$ go install github.com/nnutter/testifylint@latest
 $ testifylint -h
 $ testifylint ./...
 ```
@@ -116,8 +111,6 @@ https://golangci-lint.run/docs/linters/configuration/#testifylint
 | [suite-thelper](#suite-thelper)                     | ❌                  | ✅       |
 | [useless-assert](#useless-assert)                   | ✅                  | ❌       |
 | [zero](#zero)                                       | ✅                  | ✅       |
-
-> ⚠️ Also look at open for contribution [checkers](CONTRIBUTING.md#open-for-contribution)
 
 ---
 
@@ -650,7 +643,7 @@ linter (included in [golangci-lint](https://golangci-lint.run/usage/linters/)). 
 
 Also, verbs in the format string of f-assertions are highlighted by an IDE, e.g. GoLand:
 
-<img width="600" alt="F-assertion IDE highlighting" src="https://github.com/Antonboom/testifylint/assets/17127404/9bdab802-d6eb-477d-a411-6cba043d33a5">
+<img width="600" alt="F-assertion IDE highlighting" src="docs/images/f-assertion-ide-highlighting.png">
 
 <br>
 
@@ -1221,7 +1214,7 @@ func (s *RoomSuite) assertRoomRound(roundID RoundID) {
 [anyway](https://github.com/stretchr/testify/blob/882382d845cd9780bd93c1acc8e1fa2ffe266ca1/assert/assertions.go#L317).
 
 The checker rather acts as an example of
-a [checkers.AdvancedChecker](https://github.com/Antonboom/testifylint/blob/676324836555445fded4e9afc004101ec6f597fe/internal/checkers/checker.go#L56).
+a [checkers.AdvancedChecker](./internal/checkers/checker.go).
 
 ---
 
@@ -1390,7 +1383,7 @@ assert.NoError(t, err) // require-error: for error assertions use require
 require.NoError(t, err)
 ```
 
-Please [contribute](./CONTRIBUTING.md) if you have ideas on how to make this better.
+Please open an issue if you have ideas on how to make this better.
 
 ## testify v2
 

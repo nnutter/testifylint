@@ -5,25 +5,86 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 env:
   GO_VERSION: ^1.26
 
 jobs:
-  release:
-    if: false # Releases are not published from the fork.
-    permissions:
-      contents: write
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - {os: linux, arch: arm64}
+          - {os: linux, arch: amd64}
+          - {os: darwin, arch: arm64}
+          - {os: darwin, arch: amd64}
+    env:
+      BINARY: testifylint
+      TAG: ${{ github.ref_name }}
     steps:
-        - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-go@v6
+        with:
+          go-version: ${{ env.GO_VERSION }}
+      - name: Build
+        env:
+          GOOS: ${{ matrix.platform.os }}
+          GOARCH: ${{ matrix.platform.arch }}
+        run: |
+          name="${BINARY}_${TAG}_${GOOS}_${GOARCH}"
+          ldflags="-s -w -X main.version=${TAG} -X main.commit=${GITHUB_SHA}"
+          ldflags="${ldflags} -X main.date=$(git log -1 --format=%cI)"
+          CGO_ENABLED=0 go build -trimpath -ldflags "${ldflags}" -o "$name" .
+          tar -czf "${name}.tar.gz" "$name"
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ matrix.platform.os }}-${{ matrix.platform.arch }}
+          path: ${{ env.BINARY }}_${{ env.TAG }}_${{ matrix.platform.os }}_${{ matrix.platform.arch }}.tar.gz
+          if-no-files-found: error
 
-        - uses: actions/setup-go@v6
-          with:
-            go-version: ${{ env.GO_VERSION }}
-
-        - uses: goreleaser/goreleaser-action@v7
-          with:
-            version: latest
-            args: release --clean
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_REPO: ${{ github.repository }}
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ github.ref_name }}
+    steps:
+      - name: Download the artifacts
+        uses: actions/download-artifact@v8
+        with:
+          path: dist
+          merge-multiple: true
+      - name: Write the checksums
+        run: cd dist && sha256sum -- *.tar.gz > checksums.txt
+      - name: Read the release state
+        id: state
+        run: |
+          if state="$(gh release view "$TAG" --json isDraft --jq '.isDraft' 2>/dev/null)"; then
+            if [[ "$state" == "true" ]]; then state=draft; else state=published; fi
+          else
+            state=none
+          fi
+          echo "state=$state" >> "$GITHUB_OUTPUT"
+      - name: Create a draft release
+        if: steps.state.outputs.state == 'none'
+        run: gh release create "$TAG" --verify-tag --draft --generate-notes --title "$TAG"
+      - name: Upload the assets
+        run: gh release upload "$TAG" dist/* --clobber
+      - name: Publish the release
+        if: steps.state.outputs.state != 'published'
+        run: gh release edit "$TAG" --draft=false --latest
